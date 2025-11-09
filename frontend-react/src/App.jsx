@@ -1,12 +1,18 @@
 import { useState } from 'react'
+import "./assets/css/style.css";
+import Header from "./Components/Header.jsx";
+import Footer from "./Components/Footer.jsx";
+import Main from "./Components/Main.jsx";
 
 function App() {
 
-  return (
-    <>
-      <p> Start Project uwu :3</p>
-    </>
-  )
+    return (
+        <>
+            <Header />
+            <Main />
+            <Footer />
+        </>
+    )
 }
 
 export default App
