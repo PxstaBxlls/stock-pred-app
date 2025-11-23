@@ -24,7 +24,6 @@ const Register = () => {
             console.log('Flow Succesful');
             setError({});
             setSuccess(true);
-            
         }catch(error){
             setError(error.response.data)
             console.log('Registration Error', error.response.data);

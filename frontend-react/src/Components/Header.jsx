@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-    const {isloggedin,setIsLoggedin} = useContext(AuthContext);
+    const { isloggedin, setIsLoggedin } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem('access_token');
@@ -20,7 +20,10 @@ const Header = () => {
             <Link className='navbar-brand text-light' to="/">Stock Prediction Portal</Link>
             <div>
                 {isloggedin ? (
-                    <button className='btn btn-danger' onClick = {handleLogout}>Logout</button>
+                    <>
+                        <Button text="Dashboard" class='btn-outline-info' functionality='/dashboard' />
+                        <button className='btn btn-danger' onClick={handleLogout}>Logout</button>
+                    </>
                 ) : (
                     <>
                         <Button text="Login" class='btn-outline-info' functionality='/login' />

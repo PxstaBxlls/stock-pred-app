@@ -11,7 +11,7 @@ const Login = () => {
     const [loading,setLoading] = useState(false);
     const navigate = useNavigate();
     const [error,setError] = useState('');
-    const {isloggedin,setIsLoggedin} = useContext(AuthContext);
+    const {isLoggedIn,setisLoggedIn} = useContext(AuthContext);
     
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -23,7 +23,7 @@ const Login = () => {
             localStorage.setItem('access_token', response.data.access);
             localStorage.setItem('refresh_token',response.data.refresh);
             console.log('Login Succesfull');
-            setIsLoggedin(true);
+            setisLoggedIn(true);
             navigate('/');
         } catch(error) {
             console.error("Invalid Creds")
