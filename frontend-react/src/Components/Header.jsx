@@ -6,12 +6,12 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-    const { isloggedin, setIsLoggedin } = useContext(AuthContext);
+    const { isLoggedIn, setisLoggedIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
-        setIsLoggedin(false);
+        setisLoggedIn(false);
         console.log('Logged Out');
         navigate('/login');
     };
@@ -19,16 +19,16 @@ const Header = () => {
         <nav className='navbar container pt-3 pb-3 align-items-start'>
             <Link className='navbar-brand text-light' to="/">Stock Prediction Portal</Link>
             <div>
-                {isloggedin ? (
+                {isLoggedIn ? (
                     <>
-                        <Button text="Dashboard" class='btn-outline-info' functionality='/dashboard' />
+                        <Button text="Dashboard" class='btn-outline-info' url='/dashboard' />
                         <button className='btn btn-danger' onClick={handleLogout}>Logout</button>
                     </>
                 ) : (
                     <>
-                        <Button text="Login" class='btn-outline-info' functionality='/login' />
+                        <Button text="Login" class='btn-outline-info' url='/login' />
                         &nbsp;
-                        <Button text="Register" class="btn-info" functionality='/register' />
+                        <Button text="Register" class="btn-info" url='/register' />
                     </>
                 )}
             </div>
